@@ -3,11 +3,13 @@ package entities;
 import exceptions.BusinessException;
 
 public class Account {
+	//Variaveis
 	private Integer number;
 	private String holder;
 	private Double balance;
 	private Double withdrawLimit;
 	
+	//Contrutores
 	public Account() {
 	}
 	
@@ -19,6 +21,7 @@ public class Account {
 		this.withdrawLimit = withdrawLimit;
 	}
 	
+	//Gets e Sets
 	public Integer getNumber() {
 		return number;
 	}
@@ -51,6 +54,7 @@ public class Account {
 		this.withdrawLimit = withdrawLimit;
 	}
 	
+	//Metodos
 	public void deposit(double amount) {
 		balance += amount;
 	}
@@ -60,6 +64,7 @@ public class Account {
 		balance -= amount;
 	}
 	
+	//Validando valor de saque caso seja maior que o limite de saque ou maior que o valor em conta
 	private void validateWithdraw(double amount) {
 		if (amount > getBalance()) {
 			throw new BusinessException("Withdraw error: Balance is not enough.");
